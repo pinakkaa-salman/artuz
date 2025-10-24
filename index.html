@@ -1641,3 +1641,65 @@ __wm.bt(750,27,25,2,"web","https://www.artuzindia.com/","20250615162404",1996,"h
 </script>
 
 <script type="text/javascript" src="./Floor to Ceiling Openable Wardrobes Bangalore - Artuz India_files/element.js.download"></script>
+
+
+<script>
+    // Carousel Slider Fix - Safe implementation that won't affect other code
+(function() {
+    'use strict';
+    
+    // Wait for DOM to be fully loaded
+    function initCarousel() {
+        const carouselElement = document.getElementById('carouselExampleSlidesOnly');
+        
+        if (!carouselElement) {
+            console.warn('Carousel element not found');
+            return;
+        }
+        
+        // Check if Bootstrap is loaded
+        if (typeof bootstrap !== 'undefined' && bootstrap.Carousel) {
+            // Initialize Bootstrap carousel
+            const carousel = new bootstrap.Carousel(carouselElement, {
+                interval: 3000, // 3 seconds between slides
+                ride: 'carousel',
+                pause: 'hover', // Pause on mouse hover
+                wrap: true, // Continuous loop
+                touch: true // Enable touch swipe on mobile
+            });
+            
+            // Manual control buttons
+            const prevBtn = carouselElement.querySelector('.carousel-control-prev');
+            const nextBtn = carouselElement.querySelector('.carousel-control-next');
+            
+            if (prevBtn) {
+                prevBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    carousel.prev();
+                });
+            }
+            
+            if (nextBtn) {
+                nextBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    carousel.next();
+                });
+            }
+            
+            console.log('Carousel initialized successfully');
+        } else {
+            console.error('Bootstrap JS is not loaded. Please include Bootstrap JS before this script.');
+        }
+    }
+    
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initCarousel);
+    } else {
+        initCarousel();
+    }
+})();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
