@@ -16265,7 +16265,7 @@ h5 {
   font-weight: 500;
   overflow: hidden;
   vertical-align: middle;
-  background-color: transparent;
+  /* background-color: transparent; */
 }
 .footer-contact .btn-style-4 {
   position: relative;
