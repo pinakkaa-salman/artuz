@@ -524,57 +524,60 @@ __wm.bt(750,27,25,2,"web","https://www.artuzindia.com/artuz-mini","2025051622444
         </div> -->
 
         <form id="careerForm">
-            <div class="form-row">
-                <div class="form-group">
-                    <label>Full Name <span>*</span></label>
-                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
-                </div>
+    <div class="form-row">
+        <div class="form-group">
+            <label>Full Name <span>*</span></label>
+            <input type="text" id="name" name="name" required placeholder="Enter your full name">
+        </div>
 
-                <div class="form-group">
-                    <label>Email Address <span>*</span></label>
-                    <input type="email" id="email" name="email" required placeholder="Enter your email">
-                </div>
-            </div>
+        <div class="form-group">
+            <label>Email Address <span>*</span></label>
+            <input type="email" id="email" name="email" required placeholder="Enter your email">
+        </div>
+    </div>
 
-            <div class="form-group">
-                <label>Phone Number <span>*</span></label>
-                <div class="phone-group">
-                    <select class="country-code" id="countryCode" name="countryCode">
-                        <option value="+91">IN +91</option>
-                        <option value="+1">US +1</option>
-                        <option value="+44">UK +44</option>
-                        <option value="+61">AU +61</option>
-                        <option value="+81">JP +81</option>
-                    </select>
-                    <input type="tel" class="phone-input" id="phone" name="phone" required placeholder="Enter your phone number">
-                </div>
-            </div>
+    <div class="form-group">
+        <label>Phone Number <span>*</span></label>
+        <div class="phone-group">
+            <select class="country-code" id="countryCode" name="countryCode">
+                <option value="+91">IN +91</option>
+                <option value="+1">US +1</option>
+                <option value="+44">UK +44</option>
+                <option value="+61">AU +61</option>
+                <option value="+81">JP +81</option>
+            </select>
+            <input type="tel" class="phone-input" id="phone" name="phone" required placeholder="Enter your phone number">
+        </div>
+    </div>
 
-            <div class="form-group">
-                <label>Position of Interest <span>*</span></label>
-                <select id="role" name="role" required>
-                    <option value="">Select a position</option>
-                    <option value="software-engineer">Software Engineer</option>
-                    <option value="product-manager">Product Manager</option>
-                    <option value="designer">UI/UX Designer</option>
-                    <option value="data-analyst">Data Analyst</option>
-                    <option value="marketing">Marketing Specialist</option>
-                    <option value="sales">Sales Executive</option>
-                    <option value="hr">Human Resources</option>
-                    <option value="cybersecurity">Cybersecurity Specialist</option>
-                    <option value="other">Other</option>
-                </select>
-            </div>
+    <div class="form-group">
+        <label>Position of Interest <span>*</span></label>
+        <select id="role" name="role" required>
+            <option value="">Select a position</option>
+            <option value="software-engineer">Software Engineer</option>
+            <option value="product-manager">Product Manager</option>
+            <option value="designer">UI/UX Designer</option>
+            <option value="data-analyst">Data Analyst</option>
+            <option value="marketing">Marketing Specialist</option>
+            <option value="sales">Sales Executive</option>
+            <option value="hr">Human Resources</option>
+            <option value="cybersecurity">Cybersecurity Specialist</option>
+            <option value="other">Other</option>
+        </select>
+    </div>
 
-            <div class="form-group">
-                <label>Cover Letter / Message <span>*</span></label>
-                <textarea id="message" name="message" required placeholder="Tell us about yourself, your experience, and why you'd like to join MW Solutions..."></textarea>
-            </div>
+    <div class="form-group">
+        <label>Cover Letter / Message <span>*</span></label>
+        <textarea id="message" name="message" required placeholder="Tell us about yourself, your experience, and why you'd like to join MW Solutions..."></textarea>
+    </div>
 
-            <div class="submit-container">
-                <button type="submit" class="submit-btn">SUBMIT APPLICATION</button>
-            </div>
-        </form>
+    <div class="submit-container">
+        <button type="submit" class="submit-btn">SUBMIT APPLICATION</button>
+    </div>
+
+    <!-- Add this div for displaying success/error messages -->
+    <div id="careerFormNote" style="display:none; margin-top: 15px;"></div>
+</form>
     </div>
 
 <style type="text/css">
@@ -906,7 +909,7 @@ __wm.bt(750,27,25,2,"web","https://www.artuzindia.com/artuz-mini","2025051622444
                 <div class="col-sm-4 footer-widget-style1" bis_skin_checked="1">
                     <div class="title-ft text-center" bis_skin_checked="1"> Get In Touch </div>
                     <br>
-                    <form id="footer-contact-form1" method="post" action="https://web.archive.org/web/20250516224445/https://www.artuzindia.com/contact-process1.php">
+                    <form id="footer-contact-form1" method="post" action="">
                         <div id="contacterrormessage1" style="text-align: left; margin: 0;" bis_skin_checked="1"></div>
                         <div class="row" bis_skin_checked="1">
                             <div class="col-lg-6 col-md-6" bis_skin_checked="1">
@@ -993,6 +996,90 @@ __wm.bt(750,27,25,2,"web","https://www.artuzindia.com/artuz-mini","2025051622444
 <script type="text/javascript" src="./ArtuzMini_files/jquery.lazy.min.js.download"></script>
 <script defer="" type="text/javascript" src="./ArtuzMini_files/jquery.lazy.plugins.min.js.download"></script>
 
+
+
+
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+<script>
+      function submitCareersForm(formSelector, buttonSelector, noteSelector) {
+        $(formSelector).on('submit', function (event) {
+          event.preventDefault();
+          event.stopPropagation();
+
+          // Get the button text content (excluding the svg)
+          var $button = $(buttonSelector);
+          var $buttonText = $button.contents().filter(function() {
+            return this.nodeType === 3; // Text node
+          });
+          var originalText = $buttonText.text().trim();
+          
+          // Disable button and show loading state
+          $button.addClass('loading');
+          $buttonText[0].textContent = " Please Wait... ";
+          $button.attr("disabled", true);
+
+          // Gather form data
+          var formData = {
+            name: $(formSelector + ' [name="name"]').val(),
+            email: $(formSelector + ' [name="email"]').val(),
+            countryCode: $(formSelector + ' [name="countryCode"]').val(),
+            phone: $(formSelector + ' [name="phone"]').val(),
+            role: $(formSelector + ' [name="role"]').val(),
+            message: $(formSelector + ' [name="message"]').val(),
+          };
+
+          $.ajax({
+            type: "POST",
+            url: "https://emailjsfuntions-428145106157.asia-south1.run.app/artuz-careers",
+            data: JSON.stringify(formData),
+            contentType: "application/json",
+            success: function (msg) {
+              $button.removeClass('loading');
+              $buttonText[0].textContent = " " + originalText + " ";
+              $button.removeAttr("disabled");
+              var result;
+
+              if (msg === "Email sent successfully") {
+                result =
+                  '<p style="color:green; font-weight: 600; font-size: 16px; width:100%">Application Submitted Successfully!</p>';
+                setTimeout(function() {
+                  $(noteSelector).fadeOut();
+                }, 5000);
+                $(formSelector)[0].reset();
+              } else {
+                result =
+                  '<p style="color:red; font-weight: 600; font-size: 16px; width:100%">' +
+                  msg +
+                  "</p>";
+              }
+
+              $(noteSelector).html(result).show();
+            },
+            error: function () {
+              $button.removeClass('loading');
+              $buttonText[0].textContent = " " + originalText + " ";
+              $button.removeAttr("disabled");
+              $(noteSelector)
+                .html(
+                  '<p style="color:red; font-weight: 600; font-size: 16px; width:100%">Error submitting application!</p>'
+                )
+                .show();
+            },
+          });
+
+          return false;
+        });
+      }
+
+      $(document).ready(function () {
+        // Careers form
+        submitCareersForm(
+          "#careerForm",
+          "#careerForm button[type='submit']",
+          "#careerFormNote"
+        );
+      });
+    </script>
 
 
 <script type="text/javascript">

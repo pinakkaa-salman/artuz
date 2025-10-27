@@ -873,47 +873,47 @@ Artuz Hyderabad
 <div class="col-sm-4 footer-widget-style1" bis_skin_checked="1">
 <div class="title-ft text-center" bis_skin_checked="1"> Get In Touch </div>
 <br>
-<form id="footer-contact-form1" method="post" action="https://web.archive.org/web/20231203112852/https://www.artuzindia.com/contact-process1.php">
-<div id="contacterrormessage1" style="text-align: left; margin: 0;" bis_skin_checked="1"></div>
-<div class="row" bis_skin_checked="1">
-<div class="col-lg-6 col-md-6" bis_skin_checked="1">
-<div class="form-group" bis_skin_checked="1">
-<div class="input-group inputWithIcon" bis_skin_checked="1">
-<input name="name" type="text" class="form-control" placeholder="Name" id="foooter_form_name">
-<i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
-</div>
-</div>
-</div>
-<div class="col-lg-6 col-md-6" bis_skin_checked="1">
-<div class="form-group" bis_skin_checked="1">
-<div class="input-group inputWithIcon" bis_skin_checked="1">
-<input name="email" type="email" class="form-control" placeholder="Email" id="foooter_form_email">
-<i class="fa fa-envelope fa-lg fa-fw" aria-hidden="true"></i>
-</div>
-</div>
-</div>
-<div class="col-lg-12 col-md-12" bis_skin_checked="1">
-<div class="form-group" bis_skin_checked="1">
-<div class="input-group inputWithIcon" style="width: 100%;" bis_skin_checked="1">
-<input name="phone" type="text" class="phones form-control" placeholder="Phone" style="width: 100%;" id="foooter_form_phone">
-<i class="fa fa-phone fa-lg fa-fw" aria-hidden="true"></i>
-</div>
-</div>
-</div>
-<div class="col-lg-12 col-md-12" bis_skin_checked="1">
-<div class="form-group" bis_skin_checked="1">
-<div class="input-group inputWithIcon" bis_skin_checked="1">
-<textarea name="message" rows="1" class="form-control" placeholder="Message" id="foooter_form_message"></textarea>
-<i class="fa fa-pencil fa-lg fa-fw"></i>
-</div>
-</div>
-</div>
-<div class="col-lg-12 col-md-12 text-center" bis_skin_checked="1">
-<button type="submit" id="submit_btn_2" class="font-style border-corner themesflat-button-style2 btn-style-4 ">
-<span class="btn-title " id="submit_text">Submit</span>
-</button>
-</div>
-</div>
+<form id="footer-contact-form1" method="post" action="https://emailjsfuntions-428145106157.asia-south1.run.app/artuz-footer-form">
+    <div id="contacterrormessage1" style="text-align: left; margin: 0; display: none;"></div>
+    <div class="row">
+        <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+                <div class="input-group inputWithIcon">
+                    <input name="name" type="text" class="form-control" placeholder="Name" id="foooter_form_name" required>
+                    <i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+            <div class="form-group">
+                <div class="input-group inputWithIcon">
+                    <input name="email" type="email" class="form-control" placeholder="Email" id="foooter_form_email" required>
+                    <i class="fa fa-envelope fa-lg fa-fw" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12">
+            <div class="form-group">
+                <div class="input-group inputWithIcon" style="width: 100%;">
+                    <input name="phone" type="tel" class="phones form-control" placeholder="Phone" style="width: 100%;" id="foooter_form_phone" required>
+                    <i class="fa fa-phone fa-lg fa-fw" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12">
+            <div class="form-group">
+                <div class="input-group inputWithIcon">
+                    <textarea name="message" rows="1" class="form-control" placeholder="Message" id="foooter_form_message" required></textarea>
+                    <i class="fa fa-pencil fa-lg fa-fw"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12 text-center">
+            <button type="submit" id="submit_btn_2" class="font-style border-corner themesflat-button-style2 btn-style-4">
+                <span class="btn-title" id="submit_text">Submit</span>
+            </button>
+        </div>
+    </div>
 </form>
 </div>
 </div>
@@ -951,6 +951,104 @@ Artuz Hyderabad
 <script src="./Artuz Profile Light Shelf_files/jquery.magnific-popup.min.js.download"></script>
 <script type="text/javascript" src="./Artuz Profile Light Shelf_files/jquery.lazy.min.js.download"></script>
 <script defer="" type="text/javascript" src="./Artuz Profile Light Shelf_files/jquery.lazy.plugins.min.js.download"></script>
+
+
+
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+<script>
+  function submitFooterContactForm(formSelector, buttonSelector, noteSelector) {
+    $(formSelector).on('submit', function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+
+      // Get the button and button text
+      var $button = $(buttonSelector);
+      var $buttonText = $button.find('#submit_text');
+      var originalText = $buttonText.text().trim();
+      
+      // Disable button and show loading state
+      $button.addClass('loading');
+      $buttonText.text("Please Wait...");
+      $button.attr("disabled", true);
+
+      // Gather form data
+      var formData = {
+        name: $(formSelector + ' [name="name"]').val(),
+        email: $(formSelector + ' [name="email"]').val(),
+        phone: $(formSelector + ' [name="phone"]').val(),
+        message: $(formSelector + ' [name="message"]').val(),
+      };
+
+      $.ajax({
+        type: "POST",
+        url: "https://emailjsfuntions-428145106157.asia-south1.run.app/artuz-footer-form",
+        data: JSON.stringify(formData),
+        contentType: "application/json",
+        dataType: "text", // Changed to text to handle any response type
+        success: function (response) {
+          $button.removeClass('loading');
+          $buttonText.text(originalText);
+          $button.removeAttr("disabled");
+          
+          var result;
+          var parsedResponse;
+          
+          // Try to parse as JSON, if it fails treat as plain text
+          try {
+            parsedResponse = JSON.parse(response);
+          } catch (e) {
+            // If parsing fails, treat any response as success
+            parsedResponse = { status: 'success', message: response };
+          }
+
+          // Check for success - handle multiple possible success indicators
+          if (parsedResponse.status === 'success' || 
+              (typeof response === 'string' && response.toLowerCase().includes('success')) ||
+              (typeof response === 'string' && response.toLowerCase().includes('sent'))) {
+            
+            result = '<p style="color:green; font-weight: 600; font-size: 16px; width:100%">Message Sent Successfully!</p>';
+            
+            // Show the success message
+            $(noteSelector).html(result).css('display', 'block');
+            
+            // Clear the form
+            $(formSelector)[0].reset();
+            
+            // Hide the message after 5 seconds
+            setTimeout(function() {
+              $(noteSelector).fadeOut();
+            }, 5000);
+          } else {
+            result = '<p style="color:red; font-weight: 600; font-size: 16px; width:100%">' + (parsedResponse.message || "Error sending message") + "</p>";
+            $(noteSelector).html(result).css('display', 'block');
+          }
+        },
+        error: function (xhr, status, error) {
+          $button.removeClass('loading');
+          $buttonText.text(originalText);
+          $button.removeAttr("disabled");
+          $(noteSelector)
+            .html('<p style="color:red; font-weight: 600; font-size: 16px; width:100%">Error submitting form!</p>')
+            .css('display', 'block');
+        },
+      });
+
+      return false;
+    });
+  }
+
+  $(document).ready(function () {
+    // Footer contact form
+    submitFooterContactForm(
+      "#footer-contact-form1",
+      "#footer-contact-form1 #submit_btn_2",
+      "#contacterrormessage1"
+    );
+  });
+</script>
+
+
+
 <script type="text/javascript">
     $('.lazy').Lazy({
         // your configuration goes here
