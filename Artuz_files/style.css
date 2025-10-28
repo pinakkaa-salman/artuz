@@ -2709,6 +2709,7 @@
 }
 .fa-envelope:before {
   content: "\f0e0";
+  color: #000;
 }
 .fa-linkedin:before {
   content: "\f0e1";
@@ -17998,7 +17999,7 @@ input:active {
   margin-top: -5px;
 }
 .footer-contact .mail .icon-mail::before {
-  content: "\e900";
+  content: "\f0e0";
   font-family: "icomoon";
   font-size: 17px;
   line-height: 55px;
