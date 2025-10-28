@@ -125,8 +125,333 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   }
             }
             .text-justify {text-align: justify !important;}
+      </style>
+      <style>
+        /* * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-            
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        } */
+
+        .blog-container {
+            max-width: 1280px;
+            margin: 4rem auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h1 {
+            color: white;
+            font-size: 48px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .section-header p {
+            color: rgba(255,255,255,0.9);
+            font-size: 18px;
+        }
+
+        .blog-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        .left-section {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .right-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Large Blog Cards (Left Side) */
+        .blog-card-large {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .blog-card-large:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        .blog-image-large {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .blog-content-large {
+            padding: 30px;
+        }
+
+        /* Small Blog Cards (Right Side) */
+        .blog-card-small {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .blog-card-small:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+        }
+
+        .blog-image-small {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .blog-content-small {
+            padding: 20px;
+        }
+
+        .blog-date {
+            color: #667eea;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .blog-date::before {
+            content: "📅";
+        }
+
+        .blog-title-large {
+            color: #2d3748;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .blog-title-small {
+            color: #2d3748;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .blog-excerpt {
+            color: #4a5568;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .blog-excerpt-small {
+            color: #4a5568;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .blog-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .blog-details.active {
+            max-height: 1000px;
+        }
+
+        .blog-full-text {
+            color: #4a5568;
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            padding-top: 15px;
+            border-top: 2px solid #e2e8f0;
+        }
+
+        .blog-full-text-small {
+            color: #4a5568;
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 15px;
+            padding-top: 10px;
+            border-top: 2px solid #e2e8f0;
+        }
+
+        .read-more-btn {
+            /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            height: 50px;
+            line-height: 0px;
+            /* box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4); */
+        }
+
+        .read-more-btn-small {
+            padding: 10px 24px;
+            font-size: 14px;
+        }
+
+        .read-more-btn:hover {
+            transform: scale(1.05);
+            /* box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6); */
+        }
+
+        .read-more-btn:active {
+            transform: scale(0.98);
+        }
+
+        @media (max-width: 1024px) {
+            .blog-layout {
+                grid-template-columns: 1fr;
+                padding: 2rem;
+            }
+
+            .right-section {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-header h1 {
+                font-size: 36px;
+            }
+
+            .right-section {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-image-large {
+                height: 250px;
+            }
+        }
+    </style>
+    <style>
+        .containerr {
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 60px 30px;
+        }
+
+        .blog-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 30px;
+            line-height: 1.3;
+        }
+
+        .blog-intro {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 50px;
+            line-height: 1.8;
+        }
+
+        .reason-section {
+            margin-bottom: 40px;
+        }
+
+        .reason-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+        }
+
+        .reason-text {
+            font-size: 1.05rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .brand-highlight {
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 25px;
+            }
+
+            .blog-title {
+                font-size: 2rem;
+            }
+
+            .blog-intro {
+                font-size: 1rem;
+                margin-bottom: 40px;
+            }
+
+            .reason-title {
+                font-size: 1.3rem;
+            }
+
+            .reason-text {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            .blog-title {
+                font-size: 1.75rem;
+            }
+
+            .blog-intro {
+                font-size: 0.95rem;
+            }
+
+            .reason-section {
+                margin-bottom: 35px;
+            }
+
+            .reason-title {
+                font-size: 1.2rem;
+            }
+
+            .reason-text {
+                font-size: 0.95rem;
+            }
+        }
+
+        
             #header{
                 width: 100%;
                 background-color: #fff;
@@ -137,7 +462,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             body{
                 overflow-x: hidden;
             }
-      </style>
+    </style>
 
 <link type="text/css" rel="stylesheet" charset="UTF-8" href="./Artuz_ Floor to Ceiling Sliding Doors in Vijayawada_files/m=el_main_css"><script type="text/javascript" charset="UTF-8" src="./Artuz_ Floor to Ceiling Sliding Doors in Vijayawada_files/m=el_main"></script><script src="chrome-extension://amcccnldajjnngnaoinemnaloklogjak/assets/main-world.ts-BH3U6IWg.js" type="module"></script><style type="text/css" id="mytempCss">._8mqQwQ { display: none; } ._1TWLMK.icF5zO { opacity: 0.01; }</style></head>
 
@@ -333,410 +658,77 @@ __wm.bt(750,27,25,2,"web","https://www.artuzindia.com/floor-to-ceiling-sliding-d
     <div class="page-title-content" bis_skin_checked="1">
         <div class="container" bis_skin_checked="1">
             <div class="blog-title color-white" bis_skin_checked="1">
-                <h2>Floor to ceiling sliding</h2>
-                <span><a href="./index.html" class="hv-color-st1 color-white"> Home </a>Floor to ceiling sliding</span>
+                <h2>Blogs</h2>
+                <span><a href="./index.html" class="hv-color-st1 color-white"> Home </a>Blogs</span>
             </div>
         </div>
     </div>
 </div>
-<section class="about-us" id="about-us">
-    <div class="container" bis_skin_checked="1">
-        <div class="title-section wow fadeInDown" bis_skin_checked="1" style="visibility: visible; animation-name: fadeInDown;">
-            <h1 class="d-none">floor to ceiling sliding</h1>
-        </div>
-        <div class="row py-3" bis_skin_checked="1">
-            <div class="col-sm-12" bis_skin_checked="1">
-                <p class="text-center">Transform your living space into a realm of elegance with Artuz's exquisite floor-to-ceiling sliding wardrobes. Explore a diverse range of options curated to your preferences, infusing your home with timeless aesthetics.</p>
-            </div>
-        </div>
-        <div class="row py-3" bis_skin_checked="1">
-            <div class="col-md-6" bis_skin_checked="1">
-                <img src="./images/Prime.png">
-            </div>
-            <div class="col-md-6 d-flex justify-content-center align-items-center" bis_skin_checked="1">
-                <div bis_skin_checked="1">
-                    <h3>Prime </h3>
-                    <p>Experience opulence with Prime by Artuz. These floor-to-ceiling sliding wardrobes boast the captivating Arc Fine Matt Gold design. Crafted using pre-laminated boards for a truly exquisite living environment.</p>
-                </div>
-            </div>
-        </div>
-        <div class="row py-3" bis_skin_checked="1">
-
-            <div class="col-md-6 d-flex justify-content-center align-items-center" bis_skin_checked="1">
-                <div bis_skin_checked="1">
-                    <h3>Elegant </h3>
-                    <p>Embrace sophistication with Elegant by Artuz. These floor-to-ceiling sliding wardrobes feature customizable mirror, tinted, fluted, or lacquered glass designs, complete with two dividers. Elevate your lifestyle with elegance.</p>
-                </div>
-            </div>
-            <div class="col-md-6" bis_skin_checked="1">
-            <img src="./images/Elegant.png">
-            </div>
-        </div>
-
-        <div class="row py-3" bis_skin_checked="1">
-            <div class="col-md-6" bis_skin_checked="1">
-            <img src="./images/Pearl.png">
-            </div>
-            <div class="col-md-6 d-flex justify-content-center align-items-center" bis_skin_checked="1">
-                <div bis_skin_checked="1">
-                    <h3>Pearl </h3>
-                    <p>Elevate your lifestyle with Pearl by Artuz. These customizable floor-to-ceiling sliding wardrobes exude sophistication, featuring lacquered glass, mirrors, tinted glass, slim dividers, and various design options.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="row" bis_skin_checked="1">
-
-            <div class="col-md-6 d-flex justify-content-center align-items-center" bis_skin_checked="1">
-                <div bis_skin_checked="1">
-                    <h3>Bliss  </h3>
-                    <p>Experience pure luxury with Bliss by Artuz. These customizable floor-to-ceiling sliding wardrobes feature stunning options like digitally printed glass, various glass designs, exquisite stones, and intricate cross-cut designs.</p>
-                </div>
-            </div>
-            <div class="col-md-6" bis_skin_checked="1">
-            <img src="./images/bLIS.png">
-            </div>
-        </div>  
 
 
+<!-- new code -->
+ <div class="containerr">
+        <h1 class="blog-title">Why Sliding Wardrobes Are Here to Stay</h1>
         
-    </div>
-    <div class="img-about-us" bis_skin_checked="1"><img alt="" src="./Artuz_ Floor to Ceiling Sliding Doors in Vijayawada_files/imgabout1.png"></div>
-</section>
- <section class="portfolio text-center bg-color">
-    <div class="container-fluid portfolio-style" bis_skin_checked="1">
-        <div class="title-section wow fadeInDown" bis_skin_checked="1" style="visibility: visible; animation-name: fadeInDown;">
-            <div class="flat-title color-white" bis_skin_checked="1"> LATEST FROM GALLERY </div>
-        </div>
-        <div class="flat-tabs flat-tabs-type2 flat-tabs-porpolio" bis_skin_checked="1">
-            <!--<ul class="menu-tab">
-                                    <li class="active">
-                                          <a href="#">All</a>
-                                    </li>
-                                    <li>
-                                          <a href="#">Floor to ceiling wardrobe mechanism</a>
-                                    </li>
-                                    <li>
-                                          <a href="#">Lacquered glag1shutters mechanism</a>
-                                    </li>
-                                    <li>
-                                          <a href="#">Sliding door wardrobe mechanism</a>
-                                    </li>
-                              </ul>-->
-            <div class="content-tab" bis_skin_checked="1">
-                <div class="content-inner" style="display: block;" bis_skin_checked="1">
-                    <div class="col-tab align-items-center" bis_skin_checked="1">
-                                                <div class="row margin-bottom30" bis_skin_checked="1">
-                                                            <div class="col-sm-4" bis_skin_checked="1">
-                                <div class="image-profolio style2" bis_skin_checked="1">
-                                    <div class="image" bis_skin_checked="1">
-                                        <a class="image-popup-vertical-fit" href="./gallery/Artboard 1.png" title="POPUP">
-                                            <img alt="images" width="444px" height="263px" class="lazy" loading="lazy" data-src="./gallery/Artboard 1.png">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                                                            <div class="col-sm-4" bis_skin_checked="1">
-                                <div class="image-profolio style2" bis_skin_checked="1">
-                                    <div class="image" bis_skin_checked="1">
-                                        <a class="image-popup-vertical-fit" href="./gallery/Artboard 2.png" title="POPUP">
-                                            <img alt="images" width="444px" height="263px" class="lazy" loading="lazy" data-src="./gallery/Artboard 2.png" src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aW50ZXJpb3IlMjBkZXNpZ258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4" bis_skin_checked="1">
-                                <div class="image-profolio style2" bis_skin_checked="1">
-                                    <div class="image" bis_skin_checked="1">
-                                        <a class="image-popup-vertical-fit" href="./gallery/Artboard 3.png" title="POPUP">
-                                            <img alt="images" width="444px" height="263px" class="lazy" loading="lazy" data-src="./gallery/Artboard 3.png">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            </div>  
-                            <div class="row margin-bottom30" bis_skin_checked="1">                                <div class="col-sm-4" bis_skin_checked="1">
-                                <div class="image-profolio style2" bis_skin_checked="1">
-                                    <div class="image" bis_skin_checked="1">
-                                        <a class="image-popup-vertical-fit" href="./gallery/Artboard 4.png" title="POPUP">
-                                            <img alt="images" width="444px" height="263px" class="lazy" loading="lazy" data-src="./gallery/Artboard 4.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                                                            <div class="col-sm-4" bis_skin_checked="1">
-                                <div class="image-profolio style2" bis_skin_checked="1">
-                                    <div class="image" bis_skin_checked="1">
-                                        <a class="image-popup-vertical-fit" href="./gallery/Artboard 5.png" title="POPUP">
-                                            <img alt="images" width="444px" height="263px" class="lazy" loading="lazy" data-src="./gallery/Artboard 5.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                                                            <div class="col-sm-4" bis_skin_checked="1">
-                                <div class="image-profolio style2" bis_skin_checked="1">
-                                    <div class="image" bis_skin_checked="1">
-                                        <a class="image-popup-vertical-fit" href="./gallery/Artboard 6.png" title="POPUP" >
-                                            <img alt="images" width="444px" height="263px" class="lazy" loading="lazy" data-src="./gallery/Artboard 6.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            </div>  <div class="row margin-bottom30" bis_skin_checked="1">                            </div>
-                                                                        </div>
-                </div>
-                <!-- <div class="content-inner myImg" style="display: none;" bis_skin_checked="1">
-                    <div class="col-tab align-items-center" bis_skin_checked="1">
-                    <div class="row margin-bottom30" bis_skin_checked="1">
-                            <div class="col-sm-4" bis_skin_checked="1">
-                                <div class="image-profolio style2" bis_skin_checked="1">
-                                    <div class="image" bis_skin_checked="1">
-                                        <a class="image-popup-vertical-fit" href="https://images.unsplash.com/photo-1503174971373-b1f69850bded?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGludGVyaW9yJTIwZGVzaWdufGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500" title="POPUP">
-                                            <img alt="images" width="444px" height="263px" class="lazy" loading="lazy" data-src="images/gallery/g7.webp" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4" bis_skin_checked="1">
-                                <div class="image-profolio" bis_skin_checked="1">
-                                    <div class="image" bis_skin_checked="1">
-                                        <a class="image-popup-vertical-fit" href="https://images.unsplash.com/photo-1537726235470-8504e3beef77?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fGludGVyaW9yJTIwZGVzaWdufGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500"></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4" bis_skin_checked="1">
-                                <div class="image-profolio" bis_skin_checked="1">
-                                    <div class="image" bis_skin_checked="1">
-                                        <a class="image-popup-vertical-fit" href="https://images.unsplash.com/photo-1618219740975-d40978bb7378?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzV8fGludGVyaW9yJTIwZGVzaWdufGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500" title="POPUP">
-                                            <img alt="images" width="444px" height="263px" class="lazy" loading="lazy" data-src="images/gallery/g1.webp" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row margin-bottom30" bis_skin_checked="1">
-                            <div class="col-sm-4" bis_skin_checked="1">
-                                <div class="image-profolio style2" bis_skin_checked="1">
-                                    <div class="image" bis_skin_checked="1">
-                                        <a class="image-popup-vertical-fit" href="https://images.unsplash.com/photo-1616047006789-b7af5afb8c20?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fGludGVyaW9yJTIwZGVzaWdufGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500" title="POPUP">
-                                            <img alt="images" width="444px" height="263px" class="lazy" loading="lazy" data-src="images/gallery/small/g1.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4" bis_skin_checked="1">
-                                <div class="image-profolio" bis_skin_checked="1">
-                                    <div class="image" bis_skin_checked="1">
-                                        <a class="image-popup-vertical-fit" href="https://images.unsplash.com/photo-1615874694520-474822394e73?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDN8fGludGVyaW9yJTIwZGVzaWdufGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500" title="POPUP"><img alt="images" class="lazy" loading="lazy" width="444px" height="263px" data-src="images/gallery/small/g2.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4" bis_skin_checked="1">
-                                <div class="image-profolio" bis_skin_checked="1">
-                                    <div class="image" bis_skin_checked="1">
-                                        <a class="image-popup-vertical-fit" href="https://plus.unsplash.com/premium_photo-1661962771640-426ce94f16c6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDV8fGludGVyaW9yJTIwZGVzaWdufGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500" title="POPUP">
-                                            <img alt="images" width="444px" height="263px" class="lazy" loading="lazy" data-src="images/gallery/small/g3.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row margin-bottom30" bis_skin_checked="1">
-                            <div class="col-sm-4" bis_skin_checked="1">
-                                <div class="image-profolio style2 margin-bottom24" bis_skin_checked="1">
-                                    <div class="image" bis_skin_checked="1">
-                                        <a class="image-popup-vertical-fit" href="https://images.unsplash.com/photo-1615873968403-89e068629265?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDh8fGludGVyaW9yJTIwZGVzaWdufGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500" title="POPUP">
-                                            <img alt="images" width="444px" height="263px" class="lazy" loading="lazy" data-src="images/gallery/small/g4.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4" bis_skin_checked="1">
-                                <div class="image-profolio margin-bottom24" bis_skin_checked="1">
-                                    <div class="image" bis_skin_checked="1">
-                                        <a class="image-popup-vertical-fit" href="https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTF8fGludGVyaW9yJTIwZGVzaWdufGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500" title="POPUP">
-                                            <img alt="images" width="444px" height="263px" class="lazy" loading="lazy" data-src="images/gallery/small/g5.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4" bis_skin_checked="1">
-                                <div class="image-profolio margin-bottom24" bis_skin_checked="1">
-                                    <div class="image" bis_skin_checked="1">
-                                        <a class="image-popup-vertical-fit" href="https://images.unsplash.com/photo-1533779283484-8ad4940aa3a8?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTZ8fGludGVyaW9yJTIwZGVzaWdufGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500" title="POPUP">
-                                            <img alt="images" width="444px" height="263px" class="lazy" loading="lazy" data-src="images/gallery/small/g6.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+        <p class="blog-intro">
+            In the world of modern interiors, few innovations have transformed home design as seamlessly as sliding wardrobes. Sleek, space-saving, and stylish — they've become a hallmark of contemporary living.
+            <br><br>
+            Here are seven reasons why sliding wardrobes by <span class="brand-highlight">Artuz India</span> continue to be a timeless choice for modern homes.
+        </p>
 
-                        <div class="row margin-bottom30" bis_skin_checked="1">
-                            <div class="col-sm-4" bis_skin_checked="1">
-                                <div class="image-profolio style2" bis_skin_checked="1">
-                                    <div class="image" bis_skin_checked="1">
-                                        <a class="image-popup-vertical-fit" href="https://plus.unsplash.com/premium_photo-1670360414483-64e6d9ba9038?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW50ZXJpb3IlMjBkZXNpZ258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500" title="POPUP">
-                                            <img alt="images" width="444px" height="263px" class="lazy" loading="lazy" data-src="images/gallery/small/g7.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4" bis_skin_checked="1">
-                                <div class="image-profolio" bis_skin_checked="1">
-                                    <div class="image" bis_skin_checked="1">
-                                        <a class="image-popup-vertical-fit" href="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aW50ZXJpb3IlMjBkZXNpZ258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500" title="POPUP"><img alt="images" class="lazy" loading="lazy" width="444px" height="263px" data-src="images/gallery/small/g9.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4" bis_skin_checked="1">
-                                <div class="image-profolio" bis_skin_checked="1">
-                                    <div class="image" bis_skin_checked="1">
-                                        <a class="image-popup-vertical-fit" href="https://images.unsplash.com/photo-1533779283484-8ad4940aa3a8?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTZ8fGludGVyaW9yJTIwZGVzaWdufGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500" title="POPUP">
-                                            <img alt="images" width="444px" height="263px" class="lazy" loading="lazy" data-src="images/gallery/small/g10.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row margin-bottom30" bis_skin_checked="1">
-                            <div class="col-sm-4" bis_skin_checked="1">
-                                <div class="image-profolio style2" bis_skin_checked="1">
-                                    <div class="image" bis_skin_checked="1">
-                                        <a class="image-popup-vertical-fit" href="https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTF8fGludGVyaW9yJTIwZGVzaWdufGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500" title="POPUP">
-                                            <img alt="images" width="444px" height="263px" class="lazy" loading="lazy" data-src="images/gallery/moon-cds-i1.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4" bis_skin_checked="1">
-                                <div class="image-profolio" bis_skin_checked="1">
-                                    <div class="image" bis_skin_checked="1">
-                                        <a class="image-popup-vertical-fit" href="https://images.unsplash.com/photo-1615873968403-89e068629265?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDh8fGludGVyaW9yJTIwZGVzaWdufGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500" title="POPUP">
-                                            <img alt="images" class="lazy" loading="lazy" width="444px" height="263px" data-src="images/gallery/moon-cds-i2.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4" bis_skin_checked="1">
-                                <div class="image-profolio" bis_skin_checked="1">
-                                    <div class="image" bis_skin_checked="1">
-                                        <a class="image-popup-vertical-fit" href="https://plus.unsplash.com/premium_photo-1661962771640-426ce94f16c6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDV8fGludGVyaW9yJTIwZGVzaWdufGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500" title="POPUP">
-                                            <img alt="images" width="444px" height="263px" class="lazy" loading="lazy" data-src="images/gallery/moon-cds-i3.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row margin-bottom30" bis_skin_checked="1">
-                            <div class="col-sm-4" bis_skin_checked="1">
-                                <div class="image-profolio style2 margin-bottom24" bis_skin_checked="1">
-                                    <div class="image" bis_skin_checked="1">
-                                        <a class="image-popup-vertical-fit" href="https://images.unsplash.com/photo-1615874694520-474822394e73?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDN8fGludGVyaW9yJTIwZGVzaWdufGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500" title="POPUP">
-                                            <img alt="images" width="444px" height="263px" class="lazy" loading="lazy" data-src="images/gallery/small/g13.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4" bis_skin_checked="1">
-                                <div class="image-profolio margin-bottom24" bis_skin_checked="1">
-                                    <div class="image" bis_skin_checked="1">
-                                        <a class="image-popup-vertical-fit" href="https://images.unsplash.com/photo-1618219740975-d40978bb7378?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzV8fGludGVyaW9yJTIwZGVzaWdufGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500" title="POPUP">
-                                            <img alt="images" width="444px" height="263px" class="lazy" loading="lazy" data-src="images/gallery/small/g14.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4" bis_skin_checked="1">
-                                <div class="image-profolio margin-bottom24" bis_skin_checked="1">
-                                    <div class="image" bis_skin_checked="1">
-                                        <a class="image-popup-vertical-fit" href="https://images.unsplash.com/photo-1616047006789-b7af5afb8c20?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fGludGVyaW9yJTIwZGVzaWdufGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500" title="POPUP">
-                                            <img alt="images" width="444px" height="263px" class="lazy" loading="lazy" data-src="images/gallery/small/g19.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row margin-bottom30" bis_skin_checked="1">
-                            <div class="col-sm-4" bis_skin_checked="1">
-                                <div class="image-profolio style2" bis_skin_checked="1">
-                                    <div class="image" bis_skin_checked="1">
-                                        <a class="image-popup-vertical-fit" href="https://web.archive.org/web/20250615162404/https://www.artuzindia.com/images/gallery/g20.jpg" title="POPUP">
-                                            <img alt="images" width="444px" height="263px" class="lazy" loading="lazy" data-src="images/gallery/small/g9.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4" bis_skin_checked="1">
-                                <div class="image-profolio" bis_skin_checked="1">
-                                    <div class="image" bis_skin_checked="1">
-                                        <a class="image-popup-vertical-fit" href="https://web.archive.org/web/20250615162404/https://www.artuzindia.com/images/gallery/g21.jpg" title="POPUP">
-                                            <img alt="images" width="444px" height="263px" class="lazy" loading="lazy" data-src="images/gallery/small/g21.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4" bis_skin_checked="1">
-                                <div class="image-profolio" bis_skin_checked="1">
-                                    <div class="image" bis_skin_checked="1">
-                                        <a class="image-popup-vertical-fit" href="https://web.archive.org/web/20250615162404/https://www.artuzindia.com/images/gallery/g16.jpg" title="POPUP">
-                                            <img alt="images" width="444px" height="263px" class="lazy" loading="lazy" data-src="images/gallery/small/g16.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row margin-bottom30" bis_skin_checked="1">
-                            <div class="col-sm-4" bis_skin_checked="1">
-                                <div class="image-profolio style2" bis_skin_checked="1">
-                                    <div class="image" bis_skin_checked="1">
-                                        <a class="image-popup-vertical-fit" href="https://web.archive.org/web/20250615162404/https://www.artuzindia.com/images/gallery/g22.jpg" title="POPUP">
-                                            <img alt="images" width="444px" height="263px" class="lazy" loading="lazy" data-src="images/gallery/small/g22.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4" bis_skin_checked="1">
-                                <div class="image-profolio" bis_skin_checked="1">
-                                    <div class="image" bis_skin_checked="1">
-                                        <a class="image-popup-vertical-fit" href="https://web.archive.org/web/20250615162404/https://www.artuzindia.com/images/gallery/g23.jpg" title="POPUP">
-                                            <img alt="images" width="444px" height="263px" class="lazy" loading="lazy" data-src="images/gallery/small/g23.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4" bis_skin_checked="1">
-                                <div class="image-profolio" bis_skin_checked="1">
-                                    <div class="image" bis_skin_checked="1">
-                                        <a class="image-popup-vertical-fit" href="https://web.archive.org/web/20250615162404/https://www.artuzindia.com/images/gallery/g24.jpg" title="POPUP">
-                                            <img alt="images" width="444px" height="263px" class="lazy" loading="lazy" data-src="images/gallery/small/g24.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row margin-bottom30" bis_skin_checked="1">
-                            <div class="col-sm-4" bis_skin_checked="1">
-                                <div class="image-profolio style2 margin-bottom24" bis_skin_checked="1">
-                                    <div class="image" bis_skin_checked="1">
-                                        <a class="image-popup-vertical-fit" href="https://web.archive.org/web/20250615162404/https://www.artuzindia.com/images/gallery/g25.jpg" title="POPUP">
-                                            <img alt="images" width="444px" height="263px" class="lazy" loading="lazy" data-src="images/gallery/small/g25.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4" bis_skin_checked="1">
-                                <div class="image-profolio margin-bottom24" bis_skin_checked="1">
-                                    <div class="image" bis_skin_checked="1">
-                                        <a class="image-popup-vertical-fit" href="https://web.archive.org/web/20250615162404/https://www.artuzindia.com/images/gallery/g26.jpg" title="POPUP">
-                                            <img alt="images" width="444px" height="263px" class="lazy" loading="lazy" data-src="images/gallery/small/g26.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4" bis_skin_checked="1">
-                                <div class="image-profolio margin-bottom24" bis_skin_checked="1">
-                                    <div class="image" bis_skin_checked="1">
-                                        <a class="image-popup-vertical-fit" href="https://web.archive.org/web/20250615162404/https://www.artuzindia.com/images/gallery/g27.jpg" title="POPUP">
-                                            <img alt="images" width="444px" height="263px" class="lazy" loading="lazy" data-src="images/gallery/small/g27.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div> -->
+        <article>
+            <div class="reason-section">
+                <h2 class="reason-title">1. Space Efficiency at Its Best</h2>
+                <p class="reason-text">
+                    Sliding wardrobes don't require extra space for doors to swing open, making them ideal for compact rooms and urban apartments. <span class="brand-highlight">Artuz India's</span> intelligently designed sliding systems maximize floor area without compromising accessibility or aesthetics.
+                </p>
             </div>
-        </div>
+
+            <div class="reason-section">
+                <h2 class="reason-title">2. Elegant and Modern Design</h2>
+                <p class="reason-text">
+                    With clean lines and a minimalist aesthetic, sliding wardrobes instantly elevate your interiors. Whether you prefer glass, mirrored, or textured finishes, <span class="brand-highlight">Artuz India</span> offers a wide range of custom designs that complement every style.
+                </p>
+            </div>
+
+            <div class="reason-section">
+                <h2 class="reason-title">3. Customization and Flexibility</h2>
+                <p class="reason-text">
+                    No two homes are the same — and neither are wardrobes. <span class="brand-highlight">Artuz India</span> provides tailored solutions that fit your layout, color palette, and storage needs perfectly. From wardrobe size to internal shelving, everything can be personalized.
+                </p>
+            </div>
+
+            <div class="reason-section">
+                <h2 class="reason-title">4. Smooth Functionality</h2>
+                <p class="reason-text">
+                    Built with precision-engineered tracks and mechanisms, sliding wardrobes from <span class="brand-highlight">Artuz India</span> ensure effortless movement and long-lasting durability. The seamless glide makes daily use convenient and quiet.
+                </p>
+            </div>
+
+            <div class="reason-section">
+                <h2 class="reason-title">5. Enhanced Storage Organization</h2>
+                <p class="reason-text">
+                    Sliding wardrobes make it easier to organize clothing, accessories, and more with smart internal configurations. With <span class="brand-highlight">Artuz India's</span> modular designs, you can optimize every inch of space efficiently.
+                </p>
+            </div>
+
+            <div class="reason-section">
+                <h2 class="reason-title">6. Aesthetically Versatile</h2>
+                <p class="reason-text">
+                    Whether your home leans toward contemporary, classic, or minimal, sliding wardrobes blend effortlessly into any setting. <span class="brand-highlight">Artuz India's</span> extensive finish options allow homeowners to create a cohesive look that complements their interiors.
+                </p>
+            </div>
+
+            <div class="reason-section">
+                <h2 class="reason-title">7. Built to Last</h2>
+                <p class="reason-text">
+                    Durability meets design at <span class="brand-highlight">Artuz India</span>. Crafted using high-quality materials and superior hardware, these wardrobes are built to withstand daily wear while maintaining their elegant appeal for years to come.
+                </p>
+            </div>
+        </article>
     </div>
-    <!-- <a class="themesflat-button-style2 btn-style-3" id="btn1">
-        <span class="btn-title">Show More</span>
-    </a> -->
-</section>
+
+
 
 <style type="text/css">
     a:hover,
@@ -758,7 +750,7 @@ __wm.bt(750,27,25,2,"web","https://www.artuzindia.com/floor-to-ceiling-sliding-d
         border-radius: 10px;
     }
 
-    #accordion .panel-title a {
+   #accordion .panel-title a {
         display: block;
         padding: 10px 35px;
         font-size: 20px;

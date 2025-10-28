@@ -12400,7 +12400,7 @@ fieldset:disabled .btn {
 }
 .bg-dark {
   --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
+  /* background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important; */
 }
 .bg-black {
   --bs-bg-opacity: 1;
@@ -16045,8 +16045,8 @@ h5 {
   color: #202020;
 }
 .themesflat-button-style2 span {
-  background-color: #d4af37;
-  color: #202020;
+  background-color: #000;
+  color: #FFF;
 }
 .themesflat-button-style3 span {
   background-color: #202020;
@@ -16530,7 +16530,7 @@ h5 {
   z-index: 100;
   width: 100%;
   height: 90px;
-  top: -36px;
+  /* top: -36px; */
 }
 .content-wrap {
   padding-top: 0px;
@@ -16700,7 +16700,7 @@ h5 {
 }
 .nav-wrap {
   float: left;
-  background: #d4af37;
+  background: #fff;
   padding-left: 15px;
   width: 100%;
 }
@@ -16773,7 +16773,7 @@ h5 {
 #mainnav ul > li > a {
   display: inline-block;
   line-height: 90px;
-  color: #202020;
+  color: #000;
   font-weight: 700;
   -webkit-transition: all 0.4s ease-out 0s;
   -moz-transition: all 0.4s ease-out 0s;
@@ -16821,7 +16821,7 @@ h5 {
 }
 #mainnav ul li li a:before {
   position: absolute;
-  content: "//";
+  content: "";
   top: 50%;
   left: 0;
   color: #d4af37;
@@ -16846,7 +16846,7 @@ h5 {
 #mainnav ul li li a:hover,
 #mainnav ul ul li.current-menu-item > a,
 #mainnav ul ul li.current-menu-ancestor > a {
-  color: #d4af37 !important;
+  color: #ED3237 !important;
   padding-left: 17px;
 }
 #mainnav ul > li.menu-item-has-children > a:after {
@@ -16858,7 +16858,7 @@ h5 {
   content: "\f0da";
   font-size: 14px;
   line-height: 1;
-  color: #202020;
+  color: #000;
   font-weight: 500;
   transform: rotate(90deg);
   -webkit-transition: all 0.3s ease;
@@ -17800,7 +17800,7 @@ h5 {
   border-radius: 50%;
   padding: 12px 13px 14px 13px;
   line-height: 48px;
-  background-color: #d4af37;
+  background-color: #000;
   color: #202020;
 }
 .blog-contact .mail .icon-mail::before {
@@ -17986,7 +17986,7 @@ input:active {
   font-family: "FontAwesome";
   font-size: 30px;
   line-height: 55px;
-  color: #d4af37;
+  color: #fff;
 }
 .footer-contact .call-us .content-call-us {
   margin-top: 1px;
@@ -18010,7 +18010,7 @@ input:active {
   font-family: "FontAwesome";
   font-size: 26px;
   line-height: 55px;
-  color: #d4af37;
+  color: #fff;
 }
 .footer-contact .text a {
   text-decoration: none;
@@ -18021,7 +18021,7 @@ input:active {
   line-height: 30px;
 }
 .footer-contact .text a:hover {
-  color: #d4af37;
+  color: #ED3237;
 }
 .footer-contact .mail {
   padding: 15px 0 13px 0;
@@ -18428,12 +18428,12 @@ section {
   font-size: 25px;
   color: #fff;
   border-radius: 50%;
-  background: #d4af37;
+  background: #000;
   z-index: 9;
 }
 .whatsapp {
-  right: 0;
-  top: 35%;
+  right: 1%;
+  top: 80%;
   z-index: 9;
 }
 #accordion .panel-title a::after {
