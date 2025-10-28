@@ -15254,7 +15254,7 @@ a {
 }
 a:hover,
 a:focus {
-  color: #d4af37;
+  color: #fff;
   text-decoration: none;
   outline: 0;
   -webkit-transition: all 0.3s ease-in-out;
