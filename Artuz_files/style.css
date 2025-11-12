@@ -18460,3 +18460,17 @@ playback timings (ms):
   PetaboxLoader3.resolve: 1191.307 (4)
   load_resource: 1154.404 (2)
 */
+
+
+
+
+
+.li-tag::before{
+  content: ".";
+  font-size: 5rem;
+  align-items: center;
+}
+.li-tag{
+  height: 2rem;
+  align-items: center;
+}
