@@ -132,7 +132,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 width: 10px !important;
                 margin-right: 15px !important;
                 padding: 0 !important;
-                background: #ED3237 !important;
+                background: #f05e23 !important;
             }
             .btn-style-3 .btn-title::after{
                 content: "" !important;
@@ -174,6 +174,171 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 margin-top: 38px;
             }
       </style>
+      <style>
+    
+
+        .hero-carousel-wrapper {
+            width: 100%;
+            height: 80vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-carousel-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .hero-carousel-slide {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .hero-carousel-slide.active-hero-slide {
+            opacity: 1;
+        }
+
+        /* Navigation Arrows */
+        .hero-carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.3);
+            border: none;
+            color: white;
+            font-size: 24px;
+            /* padding: 15px 20px; */
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            /* background-color: #F05E23; */
+            backdrop-filter: blur(5px);
+        }
+
+        .hero-carousel-nav:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .hero-carousel-prev {
+            left: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .hero-carousel-next {
+            right: 20px;
+            border-radius: 8px 0 0 8px;
+        }
+
+        /* Pagination Dots */
+        .hero-carousel-pagination {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 6px;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 12px 20px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-carousel-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .hero-carousel-dot:hover {
+            background: rgba(255, 255, 255, 0.7);
+            transform: scale(1.1);
+        }
+
+        .hero-carousel-dot.active-hero-dot {
+            background: white;
+            width: 32px;
+            border-radius: 6px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-carousel-wrapper {
+                height: 60vh;
+            }
+
+            .hero-carousel-nav {
+                font-size: 18px;
+                padding: 10px 15px;
+            }
+
+            .hero-carousel-prev {
+                left: 10px;
+            }
+
+            .hero-carousel-next {
+                right: 10px;
+            }
+
+            .hero-carousel-pagination {
+                bottom: 20px;
+                gap: 8px;
+                padding: 10px 15px;
+            }
+
+            .hero-carousel-dot {
+                width: 10px;
+                height: 10px;
+            }
+
+            .hero-carousel-dot.active-hero-dot {
+                width: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-carousel-wrapper {
+                height: 50vh;
+            }
+
+            .hero-carousel-nav {
+                font-size: 16px;
+                padding: 8px 12px;
+            }
+
+            .hero-carousel-pagination {
+                gap: 6px;
+                padding: 8px 12px;
+            }
+
+            .hero-carousel-dot {
+                width: 8px;
+                height: 8px;
+            }
+
+            .hero-carousel-dot.active-hero-dot {
+                width: 20px;
+            }
+        }
+        .hero-btn-wrapper{
+            position: absolute;
+            bottom: 10%;
+            left: 15%;
+        }
+    </style>
 
 <link type="text/css" rel="stylesheet" charset="UTF-8" href="./Artuz_files/m=el_main_css"><script type="text/javascript" charset="UTF-8" src="./Artuz_files/m=el_main"></script><script src="chrome-extension://amcccnldajjnngnaoinemnaloklogjak/assets/main-world.ts-BH3U6IWg.js" type="module"></script><style type="text/css" id="mytempCss">._8mqQwQ { display: none; } ._1TWLMK.icF5zO { opacity: 0.01; }</style></head>
 
@@ -370,6 +535,7 @@ __wm.bt(750,27,25,2,"web","https://www.artuzindia.com/","20250615162404",1996,"h
     @media only screen and (max-width: 768px) {
         #carouselExampleSlidesOnly {
             padding: 90px 0 40px 0;
+            background-image: url(./banner\ 1.png);
         }
     }
 
@@ -394,6 +560,11 @@ __wm.bt(750,27,25,2,"web","https://www.artuzindia.com/","20250615162404",1996,"h
     .carousel {
         background-color: #202020 !important;
         margin-top: 0px !important;
+        background-image: url(./banner\ 1.png);
+        object-fit: cover;
+        /* background-position: center; */
+        background-repeat: no-repeat;
+        background-size: cover;
     }
 
     .carousel-control-prev,
@@ -423,7 +594,7 @@ __wm.bt(750,27,25,2,"web","https://www.artuzindia.com/","20250615162404",1996,"h
 <h1 class="d-none">Artuz Bangalore India</h1>
 <h2 class="d-none">Best Sliding Wardrobe Manufacturers in Bangalore</h2>
 
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" bis_skin_checked="1">
+<!-- <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" bis_skin_checked="1">
     <div class="container" bis_skin_checked="1">
         <div class="carousel-inner" bis_skin_checked="1">
             <div class="carousel-item active" bis_skin_checked="1">
@@ -436,7 +607,6 @@ __wm.bt(750,27,25,2,"web","https://www.artuzindia.com/","20250615162404",1996,"h
                     </div>
                     <div class="col-sm-6 col-md-6" bis_skin_checked="1">
                         <picture>
-                            <!--<source srcset="images/no-img.png" media="(max-width: 768px)">-->
                             <img alt="images" class="img-center wow jackInTheBox animated" width="456px" height="440px" src="./images/Floor to Ceiling Sliding 2430 x 135.png" style="visibility: visible;">
                         </picture>
                     </div>
@@ -453,8 +623,6 @@ __wm.bt(750,27,25,2,"web","https://www.artuzindia.com/","20250615162404",1996,"h
                     </div>
                     <div class="col-sm-6 col-md-6" bis_skin_checked="1">
                         <picture>
-                            <!--<source srcset="images/no-img.png" media="(max-width: 768px)">-->
-                            <img alt="images" class="img-center wow jackInTheBox animated" width="456px" height="440px" src="./images/Floor to Ceiling Sliding 240 x 135.png" style="visibility: visible;">
                         </picture>
                     </div>
                 </div>
@@ -470,13 +638,14 @@ __wm.bt(750,27,25,2,"web","https://www.artuzindia.com/","20250615162404",1996,"h
                     </div>
                     <div class="col-sm-6 col-md-6" bis_skin_checked="1">
                         <picture>
-                            <!--<source srcset="images/no-img.png" media="(max-width: 768px)">-->
+                            <source srcset="images/no-img.png" media="(max-width: 768px)">
                             <img alt="images" class="img-center wow jackInTheBox animated" width="456px" height="440px" src="./images/Elegant.png" style="visibility: visible;">
                         </picture>
                     </div>
                 </div>
             </div>
         </div>
+        
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -486,7 +655,42 @@ __wm.bt(750,27,25,2,"web","https://www.artuzindia.com/","20250615162404",1996,"h
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
     </button>
+</div> -->
+
+
+
+<div class="hero-carousel-wrapper">
+    <div class="hero-carousel-container">
+        <!-- Slides with background images -->
+        <div class="hero-carousel-slide active-hero-slide" style="background-image: url('./images/banner\ \ \(1\).png');"> 
+            <div class="hero-btn-wrapper">
+                <a class="themesflat-button-style2 btn-style-two" href="#footer" data-toggle="modal" data-target="#exampleModalCenter"><span class="btn-title">ENQUIRE NOW</span></a>
+            </div>
+        </div>
+        <div class="hero-carousel-slide" style="background-image: url('./images/banner\ \ \(2\).png');">
+            <div class="hero-btn-wrapper">
+                <a class="themesflat-button-style2 btn-style-two" href="#footer" data-toggle="modal" data-target="#exampleModalCenter"><span class="btn-title">ENQUIRE NOW</span></a>
+            </div></div>
+        <div class="hero-carousel-slide" style="background-image: url('./images/banner\ \ \(3\).png');">
+            <div class="hero-btn-wrapper">
+                <a class="themesflat-button-style2 btn-style-two" href="#footer" data-toggle="modal" data-target="#exampleModalCenter"><span class="btn-title">ENQUIRE NOW</span></a>
+            </div></div>
+        <div class="hero-carousel-slide" style="background-image: url('./images/banner\ \ \(4\).png');">
+            <div class="hero-btn-wrapper">
+                <a class="themesflat-button-style2 btn-style-two" href="#footer" data-toggle="modal" data-target="#exampleModalCenter"><span class="btn-title">ENQUIRE NOW</span></a>
+            </div></div>
+    </div>
+
+    <!-- Navigation Arrows -->
+    <button class="hero-carousel-nav hero-carousel-prev" onclick="heroCarouselController.prevSlide()">❮</button>
+    <button class="hero-carousel-nav hero-carousel-next" onclick="heroCarouselController.nextSlide()">❯</button>
+
+    <!-- Pagination Dots -->
+    <div class="hero-carousel-pagination" id="heroCarouselPagination"></div>
 </div>
+
+
+
 <section class="about-us" id="about-us">
     <div class="container" bis_skin_checked="1">
         <div class="title-section wow fadeInDown" style="visibility: visible; animation-name: fadeInDown;" bis_skin_checked="1">
@@ -495,10 +699,10 @@ __wm.bt(750,27,25,2,"web","https://www.artuzindia.com/","20250615162404",1996,"h
         <div class="row d-flax align-items-center" bis_skin_checked="1">
             <div class="col-sm-6 clearfix wow fadeInUp  animated" data-wow-delay="0ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;" bis_skin_checked="1">
                 <div class="image-puzzle" bis_skin_checked="1">
-                    <!--<span class="img-bg"></span>-->
+                    <span class="img-bg"></span>
                     <div class="image-hover" bis_skin_checked="1">
 
-                        <img alt="images" class="lazy" loading="lazy" width="450px" height="370px" src="./images/545x325.png" style="display: inline;">
+                        <img alt="images" class="lazy" loading="lazy" width="450px" height="370px" src="./images/OUR STORY  541x541.png" style="display: inline;">
                     </div>
                 </div>
             </div>
@@ -557,7 +761,7 @@ __wm.bt(750,27,25,2,"web","https://www.artuzindia.com/","20250615162404",1996,"h
                 <div class="row what-we-do-content what-we-do-content-style" bis_skin_checked="1">
                     <div class="col-21 mb-3 mb-md-0" bis_skin_checked="1">
                         <div class="image-box wow fadeInUp  animated" data-wow-delay="0ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;" bis_skin_checked="1">
-                            <div class="image" bis_skin_checked="1"><img alt="images" class="lazy w-100" loading="lazy" width="310px" height="212" data-src="./images/Floor to Ceiling Sliding 240 x 135.png" src="./images/Floor to Ceiling Sliding 240 x 135.png"></div>
+                            <div class="image" bis_skin_checked="1"><img alt="images" class="lazy w-100" loading="lazy" width="310px" height="212" data-src="./images/sliding wardrobe.webp" src="./images/sliding wardrobe.webp"></div>
                             <div class="title-imagebox" bis_skin_checked="1">
                                 <h4 class="text-center"><a href="./Floor-to-Ceiling.html">Floor to
                                         Ceiling (Sliding)</a></h4>
@@ -575,7 +779,7 @@ __wm.bt(750,27,25,2,"web","https://www.artuzindia.com/","20250615162404",1996,"h
                     </div>
                     <div class="col-21 mb-3 mb-md-0" bis_skin_checked="1">
                         <div class="image-box wow fadeInUp  animated" data-wow-delay="0ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;" bis_skin_checked="1">
-                            <div class="image" bis_skin_checked="1"><img alt="images" class="lazy w-100" loading="lazy" width="310px" height="212" data-src="./images/Floor to Ceiling Sliding 2430 x 135.png" src="./images/Floor to Ceiling Sliding 2430 x 135.png"></div>
+                            <div class="image" bis_skin_checked="1"><img alt="images" class="lazy w-100" loading="lazy" width="310px" height="212" data-src="./images/openable wardrobe.webp" src="./images/openable wardrobe.webp"></div>
                             <div class="title-imagebox" bis_skin_checked="1">
                                 <h4 class="text-center"><a href="./Floor-to-Ceiling-openable.html">Floor to
                                         Ceiling Sliding (Openable)</a></h4>
@@ -591,7 +795,7 @@ __wm.bt(750,27,25,2,"web","https://www.artuzindia.com/","20250615162404",1996,"h
                     </div>
                     <div class="col-21 mb-3 mb-md-0" bis_skin_checked="1">
                         <div class="image-box wow fadeInUp  animated" data-wow-delay="0ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;" bis_skin_checked="1">
-                            <div class="image" bis_skin_checked="1"><img alt="images" class="lazy w-100" loading="lazy" width="310px" height="212" data-src="./images/Kitchen Shutters240 x 135.png" src="./images/Profile Light Shelf 240 X 135.png"></div>
+                            <div class="image" bis_skin_checked="1"><img alt="images" class="lazy w-100" loading="lazy" width="310px" height="212" data-src="./images/Kitchen Shutters offerings.webp" src="./images/Kitchen Shutters offerings.webp"></div>
                             <div class="title-imagebox" bis_skin_checked="1">
                                 <h4 class="text-center"><a href="./Kitchen-Shutters.html">Kitchen Shutters</a></h4>
                             </div>
@@ -606,7 +810,7 @@ __wm.bt(750,27,25,2,"web","https://www.artuzindia.com/","20250615162404",1996,"h
                     </div>
                     <div class="col-21 mb-3 mb-md-0" bis_skin_checked="1">
                         <div class="image-box wow fadeInUp  animated" data-wow-delay="0ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;" bis_skin_checked="1">
-                            <div class="image" bis_skin_checked="1"><img alt="images" class="lazy w-100" loading="lazy" width="310px" height="212" data-src="./images/Synchronized Doors 240 x 135.png" src="./images/Synchronized Doors 240 x 135.png"></div>
+                            <div class="image" bis_skin_checked="1"><img alt="images" class="lazy w-100" loading="lazy" width="310px" height="212" data-src="./images/partitions.webp" src="./images/partitions.webp"></div>
                             <div class="title-imagebox" bis_skin_checked="1">
                                 <h4 class="text-center"><a href="./Partitions.html">Partitions</a>
                                 </h4>
@@ -746,7 +950,12 @@ __wm.bt(750,27,25,2,"web","https://www.artuzindia.com/","20250615162404",1996,"h
                 TOWN</p>
             <div class="col-md-6" bis_skin_checked="1">
                 <div class="window-style2" bis_skin_checked="1">
-                    <ul class="clearfix text-center window-changle-img">
+                    <ul class="clearfix text-center window-changle-img" style="
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-top: 2rem;
+                ">
                         <li class="window-col1">
                             <img alt="" width="103px" height="103px" style="width: 25%; display: inline;" class="margin-6-6 lazy" loading="lazy" src="./images/Customised Designs.svg">
                             <div class="title-window" bis_skin_checked="1">
@@ -774,7 +983,7 @@ __wm.bt(750,27,25,2,"web","https://www.artuzindia.com/","20250615162404",1996,"h
                     </ul>
                 </div>
             </div>
-            <div class="col-md-6 carouselExampleControls" bis_skin_checked="1">
+            <!-- <div class="col-md-6 carouselExampleControls" bis_skin_checked="1">
                 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" bis_skin_checked="1">
                     <div class="carousel-inner" bis_skin_checked="1">
                         <div class="carousel-item active" bis_skin_checked="1">
@@ -803,7 +1012,7 @@ __wm.bt(750,27,25,2,"web","https://www.artuzindia.com/","20250615162404",1996,"h
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </section>
@@ -1864,6 +2073,109 @@ __wm.bt(750,27,25,2,"web","https://www.artuzindia.com/","20250615162404",1996,"h
         initCarousel();
     }
 })();
+</script>
+
+<script>
+    // Unique slider controller to avoid conflicts
+    const heroCarouselController = (function() {
+        let currentSlideIndex = 0;
+        let autoplayIntervalId = null;
+        const autoplayDelay = 4000; // 4 seconds
+        
+        const slides = document.querySelectorAll('.hero-carousel-slide');
+        const paginationContainer = document.getElementById('heroCarouselPagination');
+        
+        // Initialize pagination dots
+        function initPagination() {
+            slides.forEach((_, index) => {
+                const dot = document.createElement('div');
+                dot.className = 'hero-carousel-dot';
+                if (index === 0) dot.classList.add('active-hero-dot');
+                dot.onclick = () => goToSlide(index);
+                paginationContainer.appendChild(dot);
+            });
+        }
+        
+        // Update active slide and dot
+        function updateSlider() {
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active-hero-slide');
+                if (index === currentSlideIndex) {
+                    slide.classList.add('active-hero-slide');
+                }
+            });
+            
+            const dots = document.querySelectorAll('.hero-carousel-dot');
+            dots.forEach((dot, index) => {
+                dot.classList.remove('active-hero-dot');
+                if (index === currentSlideIndex) {
+                    dot.classList.add('active-hero-dot');
+                }
+            });
+        }
+        
+        // Go to specific slide
+        function goToSlide(index) {
+            currentSlideIndex = index;
+            updateSlider();
+            resetAutoplay();
+        }
+        
+        // Next slide
+        function nextSlide() {
+            currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+            updateSlider();
+            resetAutoplay();
+        }
+        
+        // Previous slide
+        function prevSlide() {
+            currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+            updateSlider();
+            resetAutoplay();
+        }
+        
+        // Start autoplay
+        function startAutoplay() {
+            autoplayIntervalId = setInterval(nextSlide, autoplayDelay);
+        }
+        
+        // Stop autoplay
+        function stopAutoplay() {
+            if (autoplayIntervalId) {
+                clearInterval(autoplayIntervalId);
+                autoplayIntervalId = null;
+            }
+        }
+        
+        // Reset autoplay (restart timer)
+        function resetAutoplay() {
+            stopAutoplay();
+            startAutoplay();
+        }
+        
+        // Initialize slider
+        function init() {
+            initPagination();
+            startAutoplay();
+            
+            // Pause autoplay on hover
+            const wrapper = document.querySelector('.hero-carousel-wrapper');
+            wrapper.addEventListener('mouseenter', stopAutoplay);
+            wrapper.addEventListener('mouseleave', startAutoplay);
+        }
+        
+        // Public API
+        return {
+            init,
+            nextSlide,
+            prevSlide,
+            goToSlide
+        };
+    })();
+    
+    // Initialize slider when DOM is ready
+    document.addEventListener('DOMContentLoaded', heroCarouselController.init);
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

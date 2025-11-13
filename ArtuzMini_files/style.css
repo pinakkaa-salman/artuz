@@ -16045,7 +16045,7 @@ h5 {
   color: #202020;
 }
 .themesflat-button-style2 span {
-  background-color: #000;
+  background-color: #F05E23;
   color: #FFF;
 }
 .themesflat-button-style3 span {
@@ -16077,7 +16077,7 @@ h5 {
 }
 .btn-style-one:hover {
   color: #ffffff;
-  background: #ed3237;
+  background: #f05e23;
   transition: all 0.3s ease 0s;
 }
 .btn-style-one .btn-title {
@@ -16105,7 +16105,7 @@ h5 {
   height: 100%;
   width: 101%;
   content: "";
-  background-color: #ed3237;
+  background-color: #f05e23;
   color: #fff;
   -webkit-transform: scale(0, 1);
   -ms-transform: scale(0, 1);
@@ -16306,7 +16306,7 @@ h5 {
   height: 100%;
   width: 101%;
   content: "";
-  background-color: #ed3237;
+  background-color: #f05e23;
   color: #fff;
   -webkit-transform: scale(0, 1);
   -ms-transform: scale(0, 1);
@@ -16742,7 +16742,7 @@ h5 {
   width: 0;
   bottom: 28px;
   right: 0;
-  background: #ed3237;
+  background: #f05e23;
   content: "";
   display: block;
   transition: all 0.3s linear;
@@ -16784,7 +16784,7 @@ h5 {
 }
 .current-menu > a,
 #mainnav ul > li > a:hover {
-  color: #ed3237 !important;
+  color: #f05e23 !important;
   transition: all 0.4s ease-out 0s;
 }
 #mainnav-mobi .current-menu-item > a,
@@ -16846,7 +16846,7 @@ h5 {
 #mainnav ul li li a:hover,
 #mainnav ul ul li.current-menu-item > a,
 #mainnav ul ul li.current-menu-ancestor > a {
-  color: #ED3237 !important;
+  color: #f05e23 !important;
   padding-left: 17px;
 }
 #mainnav ul > li.menu-item-has-children > a:after {
@@ -18021,7 +18021,7 @@ input:active {
   line-height: 30px;
 }
 .footer-contact .text a:hover {
-  color: #ED3237;
+  color: #f05e23;
 }
 .footer-contact .mail {
   padding: 15px 0 13px 0;
